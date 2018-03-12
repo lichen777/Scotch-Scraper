@@ -30,13 +30,14 @@ module.exports = {
           })
           .catch(function(err) {
             // If an error occurred, send it to the client
-            return res.json(err);
-          });
+            return res.status(500).json(err)
+          })
       });
-
+    })
+    .then(function() {
       // If we were able to successfully scrape and save an Article, send a message to the client
       res.send("Scrape Complete");
-    });
+    })
   },
 
   getAllArticles: function(req, res) {

@@ -11,6 +11,10 @@ router.route('/scrape')
 router.route('/articles')
   .get(control.getAllArticles)
 
+// Route for getting all Articles from the db
+router.route('/saved')
+  .get(control.getAllArticles)
+
 // Route for grabbing a specific Article by id, populate it with it's note
 // And saving/updating an Article's associated Note
 router.route('/articles/:id')
