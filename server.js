@@ -3,11 +3,6 @@ var bodyParser = require('body-parser')
 var logger = require('morgan')
 var mongoose = require('mongoose')
 
-var axios = require('axios')
-var cheerio = require('cheerio')
-
-var db = require('./models')
-
 var PORT = 8080
 
 var app = express()
@@ -19,15 +14,15 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // Use express.static to serve the public folder as a static directory
 app.use(express.static('public'))
 
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scotch";
 // By default mongoose uses callbacks for async queries, we're setting it to use promises (.then syntax) instead
 // Connect to the Mongo DB
 mongoose.Promise = Promise
-mongoose.connect('mongodb://localhost/scotch', {
-  useMongoClient: true
-})
+mongoose.connect(MONGODB_URI)
 
 // Routes
-
+app.use(require('./routes'))
 
 // Start the server
 app.listen(PORT, function () {
