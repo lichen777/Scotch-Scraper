@@ -17,9 +17,7 @@ app.use(express.static('public'))
 // By default mongoose uses callbacks for async queries, we're setting it to use promises (.then syntax) instead
 // Connect to the Mongo DB
 mongoose.Promise = Promise
-mongoose.connect('mongodb://localhost/scotch', {
-  useMongoClient: true
-})
+mongoose.connect('mongodb://localhost/scotch')
 
 // Routes
 app.use(require('./routes'))

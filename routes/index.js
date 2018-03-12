@@ -13,7 +13,7 @@ router.route('/articles')
 
 // Route for grabbing a specific Article by id, populate it with it's note
 // And saving/updating an Article's associated Note
-route.route('/articles/:id')
+router.route('/articles/:id')
   .get(control.getNote)
   .post(control.updateNote)
 

@@ -23,6 +23,14 @@ var ArticleSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Note'
   }
+  //for multiple notes, below is the schema model for `notes`
+  /*
+  notes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Note'
+    }
+  ]*/
 })
 
 // This creates our model from the above schema, using mongoose's model method
