@@ -10,9 +10,8 @@ router.route('/scrape')
 // Route for getting all Articles from the db
 router.route('/articles')
   .get(control.getAllArticles)
-
-router.route('/articles/:id')
   .post(control.saveArticle)
+
 
 // Route for getting all Saved Articles from the db
 router.route('/saved')
