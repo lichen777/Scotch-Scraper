@@ -68,7 +68,7 @@ module.exports = {
   },
 
   saveArticle: function (req, res) {
-    db.Article.findOneAndUpdate({ _id: req.body.id }, { $set: { saved: true } }, { new: true })
+    db.Article.findOneAndUpdate({ _id: req.params.id }, { $set: { saved: true } }, { new: true })
       .then(function (dbArticle) {
         // If we were able to successfully update an Article, send it back to the client
         res.json(dbArticle)
@@ -80,8 +80,8 @@ module.exports = {
   },
 
   unsaveArticle: function (req, res) {
-    console.log(req.body)
-    db.Article.findOneAndUpdate({ _id: req.body.id }, { $set: { saved: false } }, { new: true })
+    console.log(req)
+    db.Article.findOneAndUpdate({ _id: req.params.id }, { $set: { saved: false } }, { new: true })
       .then(function (dbArticle) {
         // If we were able to successfully update an Article, send it back to the client
         res.json(dbArticle)
