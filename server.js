@@ -3,7 +3,7 @@ var bodyParser = require('body-parser')
 var logger = require('morgan')
 var mongoose = require('mongoose')
 
-var PORT = 8080
+var PORT = process.env.PORT || 8080
 
 var app = express()
 
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static('public'))
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scotch";
+var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/scotch'
 // By default mongoose uses callbacks for async queries, we're setting it to use promises (.then syntax) instead
 // Connect to the Mongo DB
 mongoose.Promise = Promise

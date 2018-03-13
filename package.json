@@ -2,11 +2,11 @@
   "name": "Scotch-Scraper",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "proxy": "http://localhost:8080/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lichen777/Scotch-Scraper.git"
