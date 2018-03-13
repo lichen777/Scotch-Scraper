@@ -16,7 +16,12 @@ module.exports = {
 
         // Add the text and href of every link, and save them as properties of the result object
         result.title = $(this).children().text()
-        result.link = $(this).children().attr('href')
+        let link = $(this).children().attr('href')
+        if (link.charAt(0) == '/') {
+          result.link = 'https://scotch.io' + link
+        } else {
+          result.link = link
+        }
 
         // Create a new Article using the `result` object built from scraping
         db.Article.create(result)
