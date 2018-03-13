@@ -17,11 +17,11 @@ router.route('/articles/:id')
 // Route for getting all Saved Articles from the db
 router.route('/saved')
   .get(control.getAllSaved)
-  //.post(control.unsaveArtcle)
+  .post(control.unsaveArticle)
 
 // Route for grabbing a specific Article by id, populate it with it's note
 // And saving/updating an Article's associated Note
-router.route('/saved/:id')
+router.route('/note/:id')
   .get(control.getNote)
   .post(control.updateNote)
 
