@@ -80,6 +80,7 @@ module.exports = {
   },
 
   unsaveArticle: function (req, res) {
+    console.log(req.body.id)
     db.Article.findOneAndUpdate({ _id: req.body.id }, { $set: { saved: false } }, { new: true })
       .then(function (dbArticle) {
         // If we were able to successfully update an Article, send it back to the client
