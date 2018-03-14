@@ -5,7 +5,7 @@ var db = require('../models')
 module.exports = {
   scrape: function (req, res) {
     // First, we grab the body of the html with request
-    axios.get('https://scotch.io/tutorials').then(function (response) {
+    axios.get('https://scotch.io').then(function (response) {
       // Then, we load that into cheerio and save it to $ for a shorthand selector
       var $ = cheerio.load(response.data)
 
