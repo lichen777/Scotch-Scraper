@@ -128,7 +128,7 @@ module.exports = {
         // If a Note was created successfully, find one Article with an `_id` equal to `req.params.id`. Update the Article to be associated with the new Note
         // { new: true } tells the query that we want it to return the updated User -- it returns the original by default
         // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
-        return db.Article.findOneAndUpdate({ _id: req.params.id }, { $set: { notes: dbNote._id } }, { new: true })
+        return db.Article.findOneAndUpdate({ _id: req.params.id }, { $set: { note: dbNote._id } }, { new: true })
       // if we want to have multiple notes per article, we should use $push instead of $set. And don't forget to update schema model. See next line
       // return db.Article.findOneAndUpdate({ _id: req.params.id }, { $push: { notes: dbNote._id } }, { new: true })
       })
