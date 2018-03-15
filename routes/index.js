@@ -3,6 +3,11 @@ var control = require('../controller')
 
 var router = express.Router()
 
+router.route('/*')
+  .get(function (req, res) {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+  })
+
 // A GET route for scraping the echojs website
 router.route('/scrape')
   .get(control.scrape)
